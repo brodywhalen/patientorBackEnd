@@ -1,0 +1,19 @@
+{
+  "name": "patientorbackend",
+  "version": "1.0.0",
+  "description": "this is for par 9, section C of FSO.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brodywhalen/patientorBackEnd.git"
+  },
+  "author": "Brody P Whalen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brodywhalen/patientorBackEnd/issues"
+  },
+  "homepage": "https://github.com/brodywhalen/patientorBackEnd#readme"
+}
