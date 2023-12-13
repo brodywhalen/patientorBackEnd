@@ -1,5 +1,5 @@
 import diaries from '../../data/diariesdata';
-import { DiaryEntry } from '../types';
+import { DiaryEntry, NonSensitiveDiaryEntry } from '../types';
 
 const getEntries = (): DiaryEntry[] => {
     return diaries;
@@ -7,10 +7,20 @@ const getEntries = (): DiaryEntry[] => {
 const addDiary = () => {
     return null;
 };
+// use Pick<> or Omit<TYPE, BOOLEAN OPERATION>
+const getNonSensitiveEntries = (): NonSensitiveDiaryEntry[] => {
+    return diaries.map(({id, date,weather, visibility}) => ({
+        id,
+        date,
+        weather,
+        visibility,
+    }));
+};
 
 export default {
     getEntries,
-    addDiary
+    addDiary,
+    getNonSensitiveEntries
 };
 
 //
