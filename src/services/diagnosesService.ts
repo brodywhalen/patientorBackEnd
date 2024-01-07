@@ -1,6 +1,8 @@
 import patientData from '../../data/PatientsData';
 import diagnosesData from '../../data/DiagonosesData';
 import { DiagnosesType, PatientsType } from '../types';
+import {v1 as uuid} from 'uuid';
+
 
 const getDiagnosesData = ():DiagnosesType[] => {
 
@@ -12,9 +14,20 @@ const getPatientNoSSN = (): Omit<PatientsType, 'ssn'>[] => {
     return patientData.map(({id, name, dateOfBirth, gender, occupation}) => ({id, name, dateOfBirth, gender, occupation}));
 };
 
+const addPatient = (entry: Omit<PatientsType, 'id'>) => {
+    const newId = uuid();
+    const newPatient = {
+        id: newId,
+        ...entry
+    };
+    patientData.push(newPatient);
+    return newPatient;
+};
+
 export default {
     getDiagnosesData,
-    getPatientNoSSN
+    getPatientNoSSN,
+    addPatient
 };
 
 
