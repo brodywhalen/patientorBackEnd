@@ -1,4 +1,4 @@
-import {newPatientType } from "./types";
+import {newPatientType, Gender } from "./types";
 
 const toNewPatientType = (object:unknown): newPatientType => {
     if(!object || typeof object !== 'object'){
@@ -47,11 +47,14 @@ const parseSSN = (SSN: unknown) => {
     return SSN;
 };
 const parseGender = (gender: unknown) => {
-    if(!gender || !isString(gender)){
+    if(!gender || !isString(gender) || !isGender(gender)){
         throw new Error('incorrect or missing gender content');
     }
     return gender;
 };
+const isGender = (param: string):param is Gender => {
+    return Object.values(Gender).map(v => v.toString()).includes(param);
+}; 
 const parseOccupation = (occupation: unknown) => {
     if(!occupation || !isString(occupation)){
         throw new Error('incorrect or missing Occupation content');
